@@ -1,5 +1,6 @@
 package fi.unju.edu.ar.ejercicio8;
 import java.util.ArrayList;
+
 import java.util.Scanner;
 
 import fi.unju.edu.ar.ejercicio3.Alumno;
@@ -7,7 +8,7 @@ public class Principal8 {
 
 	public static void main(String[] args) {
 		ArrayList<Alumno> lista= new ArrayList<Alumno>();
-		Alumno unAlumno=new Alumno();
+		//Alumno unAlumn=new Alumno();
 		boolean band=true;
 		Scanner leer = new Scanner(System.in);
 		do {System.out.println(" ");
@@ -22,6 +23,7 @@ public class Principal8 {
 			int opcion=leer.nextInt();
 			switch(opcion) {
 			case 1:
+				Alumno unAlumno = new Alumno();
 				lista.add(unAlumno);
 				unAlumno.ingresarDatos(unAlumno);
 				System.out.println("Se ha agregado un nuevo alumno");
@@ -29,9 +31,9 @@ public class Principal8 {
 			case 2:
 				if (!lista.isEmpty()) {
 					System.out.println("Ingrese libreta universitaria");
-					int lu=leer.nextInt();
+					int luu=leer.nextInt();
 					for(int i=0;i<lista.size();i++){
-						if(lista.get(i).getLibretaUniversitaria()==lu) { 
+						if(lista.get(i).getLibretaUniversitaria()==luu) { 
 				    	 lista.remove(i);
 				    	 System.out.println("alumno eliminado"); 
 						}
@@ -43,10 +45,14 @@ public class Principal8 {
 			case 3:
 				if (!lista.isEmpty()) {
 					System.out.println("Ingrese libreta universitaria del alumno a modificar");
-					int lu=leer.nextInt();
+					int luuu=leer.nextInt();
 					for(int i=0;i<lista.size();i++){
-						if(lista.get(i).getLibretaUniversitaria()==lu) { 
-						 unAlumno.modificarNotas(unAlumno);
+						if(lista.get(i).getLibretaUniversitaria()==luuu) { 
+							for(int j=0;j<5;j++) {
+								System.out.println("Ingrese notas "+(j+1));
+								double nota=leer.nextDouble();
+					         	lista.get(i).getNotas()[j]=nota;
+							 }
 				    	 System.out.println("se modifico alumno "); 
 						}
 				     }
@@ -71,8 +77,9 @@ public class Principal8 {
 					System.out.println("Lista de alumno");
 
 					for(int i=0;i<lista.size();i++){
-						double promedio=unAlumno.promedio(unAlumno.getNotas());
-						if(promedio>6) { 
+						
+						double promedio1=lista.get(i).promedio(lista.get(i).getNotas());
+						if(promedio1>6) { 
 							for(int j=0;j<lista.size();j++){
 								
 								System.out.println(lista.get(j).getApellido());
