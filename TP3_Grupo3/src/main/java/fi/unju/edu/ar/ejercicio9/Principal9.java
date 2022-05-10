@@ -44,9 +44,10 @@ public class Principal9 {
 				System.out.println("Se ha agregado un nuevo alumno");
 				break;
 			case 2:
-				System.out.println(" ");
+				
 				if (!listaProducto.isEmpty()) {
 					 for(int i=0;i<listaProducto.size();i++){
+						System.out.println(" ");
 						System.out.println(listaProducto.get(i).getCodigo());
 						System.out.println(listaProducto.get(i).getDescripcion());
 						System.out.println(listaProducto.get(i).getPrecio());
